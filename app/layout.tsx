@@ -15,9 +15,15 @@ const inter = Inter({
   display: "swap",
 });
 
-// Set NEXT_PUBLIC_SITE_URL once this is deployed so OG/Twitter image URLs
-// resolve to an absolute address for social crawlers.
-const SITE_URL = process.env.NEXT_PUBLIC_SITE_URL ?? "http://localhost:3000";
+// GitHub Pages serves this repo at /second-breakfast-studio/, not the domain
+// root. Metadata strings (unlike next/image imports) aren't auto-prefixed by
+// Next's basePath config, so build the prefix in by hand.
+const basePath = process.env.GITHUB_ACTIONS ? "/second-breakfast-studio" : "";
+const SITE_URL =
+  process.env.NEXT_PUBLIC_SITE_URL ??
+  (process.env.GITHUB_ACTIONS
+    ? "https://owenakers.github.io/second-breakfast-studio"
+    : "http://localhost:3000");
 const DESCRIPTION =
   "Established in 2024, Second Breakfast Studio has been designing and creating high quality handcrafted furniture in Charlotte, North Carolina.";
 
@@ -26,8 +32,8 @@ export const metadata: Metadata = {
   title: "Second Breakfast Studio | Handcrafted Furniture in Charlotte, NC",
   description: DESCRIPTION,
   icons: {
-    icon: "/icon.png",
-    apple: "/apple-icon.png",
+    icon: `${basePath}/icon.png`,
+    apple: `${basePath}/apple-icon.png`,
   },
   openGraph: {
     title: "Second Breakfast Studio",
@@ -35,7 +41,7 @@ export const metadata: Metadata = {
     siteName: "Second Breakfast Studio",
     images: [
       {
-        url: "/images/og-image.jpg",
+        url: `${basePath}/images/og-image.jpg`,
         width: 1200,
         height: 630,
         alt: "A handcrafted live-edge wood slab coffee table by Second Breakfast Studio",
@@ -48,7 +54,7 @@ export const metadata: Metadata = {
     card: "summary_large_image",
     title: "Second Breakfast Studio",
     description: DESCRIPTION,
-    images: ["/images/og-image.jpg"],
+    images: [`${basePath}/images/og-image.jpg`],
   },
 };
 
