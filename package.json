@@ -1,0 +1,36 @@
+{
+  "name": "second-breakfast-studio",
+  "version": "1.0.0",
+  "description": "Landing page for Second Breakfast Studio, a handcrafted furniture maker in Charlotte, NC.",
+  "private": true,
+  "scripts": {
+    "dev": "next dev",
+    "build": "next build",
+    "start": "next start"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/owenakers/second-breakfast-studio.git"
+  },
+  "keywords": [],
+  "author": "",
+  "license": "ISC",
+  "type": "module",
+  "bugs": {
+    "url": "https://github.com/owenakers/second-breakfast-studio/issues"
+  },
+  "homepage": "https://github.com/owenakers/second-breakfast-studio#readme",
+  "dependencies": {
+    "next": "^16.3.0",
+    "react": "^19.2.8",
+    "react-dom": "^19.2.8"
+  },
+  "devDependencies": {
+    "@tailwindcss/postcss": "^4.3.3",
+    "@types/node": "^26.1.2",
+    "@types/react": "^19.2.18",
+    "@types/react-dom": "^19.2.4",
+    "tailwindcss": "^4.3.3",
+    "typescript": "^7.0.2"
+  }
+}
